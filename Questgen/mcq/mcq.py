@@ -148,11 +148,11 @@ def get_nouns_multipartite(text):
     out = []
 
     extractor = pke.unsupervised.MultipartiteRank()
-    extractor.load_document(input=text, language='en')
     pos = {'PROPN', 'NOUN'}
     stoplist = list(string.punctuation)
     stoplist += stopwords.words('english')
-    extractor.candidate_selection(pos=pos, stoplist=stoplist)
+    extractor.load_document(input=text, language='en',stoplist=stoplist)
+    extractor.candidate_selection(pos=pos)
     # 4. build the Multipartite graph and rank candidates using random walk,
     #    alpha controls the weight adjustment mechanism, see TopicRank for
     #    threshold/method parameters.
