@@ -30,14 +30,13 @@ from Questgen.mcq.mcq import generate_questions_mcq
 from Questgen.mcq.mcq import generate_normal_questions
 import time
 
-os.environ['TRANSFORMERS_CACHE'] = '/root/.cache/torch/transformers'
 class QGen:
     
     def __init__(self):
         
         
-        self.tokenizer = T5Tokenizer.from_pretrained("t5-small")
-        model = T5ForConditionalGeneration.from_pretrained("t5-small")
+        self.tokenizer = T5Tokenizer.from_pretrained(os.environ['TRANSFORMERS_CACHE'])
+        model = T5ForConditionalGeneration.from_pretrained(os.environ['TRANSFORMERS_CACHE'])
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         model.to(device)
         # model.eval()
