@@ -35,8 +35,8 @@ class QGen:
     def __init__(self):
         
         
-        self.tokenizer = T5Tokenizer.from_pretrained(os.path.abspath("/app/t5"))
-        model = T5ForConditionalGeneration.from_pretrained(os.path.abspath("/app/t5_condi"))
+        self.tokenizer = T5Tokenizer.from_pretrained("t5-small")
+        model = T5ForConditionalGeneration.from_pretrained("t5-small")
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         model.to(device)
         # model.eval()
