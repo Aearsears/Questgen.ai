@@ -30,6 +30,9 @@ from Questgen.mcq.mcq import generate_questions_mcq
 from Questgen.mcq.mcq import generate_normal_questions
 import time
 
+os.environ['TRANSFORMERS_CACHE'] = '/root/.cache/torch/transformers'
+os.environ['HF_DATASETS_OFFLINE'] = 1
+os.environ['TRANSFORMERS_OFFLINE'] = 1
 class QGen:
     
     def __init__(self):
